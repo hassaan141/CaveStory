@@ -15,6 +15,14 @@ symbol_count = {
   "C": 6,
   "D": 8
 }
+
+#function to get the slot machine spin 
+def get_slot_machine_spin(rows, cols, symbols):
+  #creating a list for all of our symbols
+  all_symbols=[]
+  for symbol, symbol_count in symbol.items():
+    print()
+
 #Deposit function called when entering the deposit size
 def deposit():
   while True:
