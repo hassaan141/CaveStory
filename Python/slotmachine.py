@@ -20,8 +20,20 @@ symbol_count = {
 def get_slot_machine_spin(rows, cols, symbols):
   #creating a list for all of our symbols
   all_symbols=[]
+  #.items() gives you both the key and a value from the dictionary
   for symbol, symbol_count in symbol.items():
-    print()
+    #now add the symbols to the symbols list
+    for _ in range(symbol_count):
+      all_symbols.append(symbol)
+
+  #storing the columns not the rows
+  columns= []
+  for col in range (cols):
+    column=[]
+    #to copy a list, you need a colon in the brackets, will not work without [] because it will just store the object, : is the splice symbol
+    current_symbols = all_symbols[:]
+    for row in range (rows):
+      value = random.choice(all_symbols)
 
 #Deposit function called when entering the deposit size
 def deposit():
