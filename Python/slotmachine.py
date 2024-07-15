@@ -21,10 +21,11 @@ def get_slot_machine_spin(rows, cols, symbols):
   #creating a list for all of our symbols
   all_symbols=[]
   #.items() gives you both the key and a value from the dictionary
-  for symbol, symbol_count in symbol.items():
+  for symbol, symbol_count in symbols.items():
     #now add the symbols to the symbols list
     for _ in range(symbol_count):
       all_symbols.append(symbol)
+
 
   #storing the columns not the rows
   columns= []
@@ -32,8 +33,16 @@ def get_slot_machine_spin(rows, cols, symbols):
     column=[]
     #to copy a list, you need a colon in the brackets, will not work without [] because it will just store the object, : is the splice symbol
     current_symbols = all_symbols[:]
-    for row in range (rows):
-      value = random.choice(all_symbols)
+    for _ in range (rows):
+      value = random.choice(current_symbols)
+      #.remove() gets the first instance of that value and removes it
+      current_symbols.remove(value)
+      column.append(value)
+      print(column)
+
+    columns.append(column)
+
+  return columns
 
 #Deposit function called when entering the deposit size
 def deposit():
@@ -85,6 +94,7 @@ def get_bet():
 
 # main called whenever they want to play again
 def main():
+  
   balance = deposit()
   lineNumber = get_number_0f_lines()
   while True:
@@ -96,6 +106,7 @@ def main():
     else:
       break
 
-
+  get_slot_machine_spin(ROWS, COL, symbol_count)
   print(f"You are betting {bet} on {lineNumber} lines. Your total bet is {total_bet}")
+
 main()
