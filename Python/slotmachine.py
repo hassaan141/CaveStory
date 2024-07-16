@@ -70,7 +70,7 @@ def get_number_0f_lines():
         print(f"Your lines are {lines}")
         break
       else:
-        print("Please enter a number between 1 and "+str(MAX_LINES)+"")
+        print("Please enter a number betwen 1 and "+str(MAX_LINES)+"")
 
     else:
       print("Please enter a number ")
